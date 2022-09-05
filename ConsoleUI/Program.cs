@@ -14,7 +14,20 @@ namespace ConsoleUI
 
             //TestColor();
 
-            TestBrand();
+            //TestBrand();
+
+            TestRental();
+        }
+
+        private static void TestRental()
+        {
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+
+            //Console.WriteLine(rentalManager.Add(new Rental { CarId = 2, CustomerId = 2,RentalId=8, RentDate = DateTime.Now}).Success);
+            foreach (var rental in rentalManager.GetAll().Data)
+            {
+                Console.WriteLine(rental.ReturnDate);
+            }
         }
 
         private static void TestBrand()
@@ -40,7 +53,7 @@ namespace ConsoleUI
             CarManager carManager = new CarManager(new EfCarDal());
             foreach (var car in carManager.GetCarDetails().Data)
             {
-                Console.WriteLine("{0} -- {1} -- {2} -- {3}",car.CarName,car.BrandName,car.ColorName,car.DailyPrice);
+                Console.WriteLine("{0} -- {1} -- {2} -- {3}", car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
             }
         }
     }
