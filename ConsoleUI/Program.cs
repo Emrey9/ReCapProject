@@ -16,7 +16,10 @@ namespace ConsoleUI
 
             //TestBrand();
 
-            TestRental();
+            //TestRental();
+
+           CustomerManager userManager = new CustomerManager(new EfCustomerDal());
+            Console.WriteLine(userManager.GetById(2).Data.CompanyName);
         }
 
         private static void TestRental()
@@ -26,7 +29,7 @@ namespace ConsoleUI
             //Console.WriteLine(rentalManager.Add(new Rental { CarId = 2, CustomerId = 2,RentalId=8, RentDate = DateTime.Now}).Success);
             foreach (var rental in rentalManager.GetAll().Data)
             {
-                Console.WriteLine(rental.ReturnDate);
+                Console.WriteLine(rental.RentDate);
             }
         }
 

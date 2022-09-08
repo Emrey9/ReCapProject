@@ -13,5 +13,6 @@ namespace Business.Constants
         public static string MaintenanceTime = "Sistem bakımda";
         public static string Listed = "Listeleme başarılı";
         public static string RentFail = "Araç uygun değil";
+        public static string InvalidUser = "Müşteri eklenmeden önce kullanıcı hesabı oluşturulmalı";
     }
 }

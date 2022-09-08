@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
@@ -24,14 +25,14 @@ namespace Business.Concrete
             if (userManager.GetById(customer.CustomerId) != null)
             {
                 _customerDal.Add(customer);
+                return new SuccessResult();
 
             }
             else
             {
-                userManager.Add(new User { UserId = customer.CustomerId, Email = "", FirtName = "", LastName = "", Password = "" });
-                _customerDal.Add(customer);
+                return new ErrorResult(Messages.InvalidUser);
             }
-            return new SuccessResult();
+            
 
         }
 
